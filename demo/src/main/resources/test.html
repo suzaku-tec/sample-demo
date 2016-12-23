@@ -1,0 +1,28 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TEST</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+	<button onclick="send()">送信</button>
+	<script type="text/javascript">
+		function send() {
+			var data = {
+				"name": "hoge",
+			};
+			alert(JSON.stringify(data));
+			$.ajax({
+				type:"post",
+				url:"http://localhost:8080/list",
+				data:JSON.stringify(data),
+				contentType: 'application/json',
+				dataType: "json",
+				success: function(json_data) {
+					alert("success");
+				}
+			})
+		}
+	</script>
+</body>
+</html>
